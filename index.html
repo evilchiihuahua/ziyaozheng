@@ -11,6 +11,17 @@
   <style>
     :root {
       color-scheme: light;
+      --oatmilk: #f2e8cf;
+      --matcha: #386641;
+      --mint: #6a994e;
+      --pistachio: #a7c957;
+      --strawberry: #bc4749;
+      --background: var(--oatmilk);
+      --text: var(--matcha);
+      --muted: #52634b;
+      --accent: #ad3e40; /* Strawberry shade with stronger text contrast. */
+      --rule: #b7c69a;
+    }
 
       --background: #f7f2e8;
       --surface: #fbf8f2;
@@ -25,7 +36,12 @@
       box-sizing: border-box;
     }
 
+    .lighter {
+      color: var(--accent);
+    }
+  
     html {
+      scroll-padding-top: 24px;
       scroll-padding-top: 90px;
     }
 
@@ -33,6 +49,9 @@
       margin: 0;
       background: var(--background);
       color: var(--text);
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
       font-family: "Inter", Arial, "Helvetica Neue", Helvetica, sans-serif;
       font-size: 18px;
       line-height: 1.75;
@@ -40,22 +59,28 @@
     }
 
     .container {
+      width: min(860px, calc(100% - 48px));
       width: min(920px, calc(100% - 48px));
       margin-inline: auto;
     }
 
     a {
       color: var(--accent);
+      text-decoration-thickness: 1px;
       text-decoration-thickness: 1.5px;
       text-underline-offset: 4px;
       transition: color 0.2s ease;
     }
 
     a:hover {
+      color: var(--matcha);
+      text-decoration-thickness: 2px;
       color: var(--text);
     }
 
     a:focus-visible {
+      outline: 2px solid var(--matcha);
+      outline-offset: 5px;
       outline: 2px solid var(--accent);
       outline-offset: 4px;
     }
@@ -65,6 +90,7 @@
       top: 8px;
       left: 12px;
       padding: 8px 12px;
+      background: var(--background);
       background: var(--surface);
       border: 1px solid var(--rule);
       transform: translateY(-150%);
@@ -75,6 +101,8 @@
     }
 
     header {
+      padding-top: 40px;
+      border-top: 4px solid var(--mint);
       padding-top: 48px;
       padding-bottom: 8px;
       border-top: 5px solid var(--accent-soft);
@@ -86,8 +114,11 @@
 
     h1 {
       margin: 0;
+      font-size: 27px;
       font-size: clamp(2.2rem, 5vw, 3rem);
       font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
       line-height: 1.15;
       letter-spacing: 0;
     }
@@ -98,12 +129,14 @@
     }
 
     .alias {
+      margin: 3px 0 0;
       margin: 6px 0 0;
       color: var(--muted);
       font-size: 1.15rem;
     }
 
     .introduction {
+      margin: 18px 0 10px;
       margin: 22px 0 14px;
       font-size: 1.1rem;
       max-width: 680px;
@@ -113,6 +146,8 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      gap: 0 12px;
+      font-size: 15px;
       gap: 0 14px;
       font-size: 16px;
       margin-top: 8px;
@@ -121,6 +156,7 @@
     .profile-links a,
     nav a {
       display: inline-block;
+      padding-block: 10px;
       padding-block: 8px;
     }
 
@@ -131,14 +167,19 @@
     nav {
       display: flex;
       flex-wrap: wrap;
+      gap: 0 24px;
+      margin-top: 22px;
+      padding: 12px 0 17px;
       gap: 8px 24px;
       margin-top: 28px;
       padding: 14px 0 18px;
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
+      font-size: 15px;
       font-size: 16px;
       font-weight: 500;
     }
+
   
     nav a {
       color: var(--text);
@@ -151,31 +192,44 @@
     }
 
     main {
+      padding-bottom: 20px;
     padding-bottom: 28px;
     }
 
     section {
+      padding-block: 32px;
       padding-block: 42px;
       border-bottom: 1px solid var(--rule);
     }
 
     h2 {
+      margin: 0 0 20px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1.3px;
       margin: 0 0 22px;
       font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      color: var(--matcha);
+      padding-left: 12px;
+      border-left: 3px solid var(--pistachio);
       color: var(--text);
     }
 
     h3 {
+      margin: 0 0 3px;
+      font-size: 18px;
       margin: 0 0 4px;
       font-size: 1.5rem;
       font-weight: 600;
+      line-height: 1.45;
       line-height: 1.3;
     }
 
     p {
+      margin: 0 0 14px;
       margin: 0 0 16px;
     }
 
@@ -184,6 +238,7 @@
     }
 
     .bio {
+      max-width: 710px;
       max-width: 720px;
     }
 
@@ -192,36 +247,48 @@
     }
 
     .entry + .entry {
+      margin-top: 28px;
       margin-top: 34px;
     }
 
     .organization {
+      margin-bottom: 1px;
       margin-bottom: 2px;
       font-weight: 500;
     }
 
     .metadata {
+      margin-bottom: 9px;
       margin-bottom: 10px;
       color: var(--muted);
       font-size: 15px;
     }
 
     .description {
+      max-width: 680px;
+    }
+
+    .placeholder-note {
+      color: var(--muted);
+      font-size: 14px;
       max-width: 700px;
     }
 
     .work-links {
       display: flex;
       flex-wrap: wrap;
+      gap: 8px 28px;
       gap: 12px 28px;
     }
 
     .work-links a {
+      padding-block: 10px;
       padding-block: 6px;
       font-weight: 500;
     }
 
     .contact-list {
+      margin: 0 0 14px;
       margin: 0;
     }
 
@@ -229,10 +296,12 @@
       display: flex;
       flex-wrap: wrap;
       gap: 4px 12px;
+      padding-block: 6px;
       padding-block: 8px;
     }
 
     .contact-list dt {
+      min-width: 80px;
       min-width: 90px;
       font-weight: 600;
     }
@@ -240,6 +309,7 @@
     .contact-list dd {
       margin: 0;
       color: var(--muted);
+      font-size: 15px;
       font-size: 16px;
       min-width: 0;
       flex: 1 1 180px;
@@ -251,37 +321,52 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px 24px;
+      padding: 20px 0 32px;
       padding: 22px 0 36px;
       color: var(--muted);
+      font-size: 13px;
       font-size: 14px;
     }
 
     footer a {
+      padding-block: 10px;
       padding-block: 8px;
     }
 
     @media (max-width: 600px) {
       .container {
+        width: calc(100% - 36px);
         width: calc(100% - 32px);
       }
 
+      header {
+        padding-top: 28px;
     header {
         padding-top: 32px;
       }
 
+      nav {
+        column-gap: 20px;
       section {
         padding-block: 32px;
       }
 
+      section {
+        padding-block: 28px;
       body {
         font-size: 17px;
       }
+    }
 
+    @media (max-width: 350px) {
+      .container {
+        width: calc(100% - 32px);
       h3 {
         font-size: 1.3rem;
       }
 
       nav {
+        column-gap: 18px;
         gap: 4px 18px;
       }
     }
@@ -289,6 +374,8 @@
     @media print {
       body {
         background: white;
+      }
+
         color: black;
     }
   
@@ -301,18 +388,12 @@
       footer {
         display: none;
       }
+
   
       a {
         color: inherit;
       }
-      }
-      .hero {
-    display: grid;
-    grid-template-columns: 1fr 180px;
-    gap: 48px;
-    align-items: start;
-  }
-    
+    }
   </style>
 </head>
 
@@ -328,7 +409,13 @@
         Arts Management, University of Toronto Scarborough.
       </p>
 
-
+      <!--
+        Replace #contact below with your actual destinations:
+        CV: assets/Ziyao-Zheng-CV.pdf
+        Email: mailto:your-email@example.com
+        GitHub: your full GitHub profile URL
+        LinkedIn: your full LinkedIn profile URL
+      -->
       <div class="profile-links" aria-label="Profile links">
         <a href="CV - 20261005.pdf" target="_blank" rel="noopener noreferrer">CV</a>
         <span class="separator" aria-hidden="true">|</span>
@@ -339,15 +426,6 @@
         <a href="https://www.linkedin.com/in/ziyao-zheng-0524a8291/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
 
-      </div>
-
-      <img
-        class="portrait"
-        src="images/portrait.jpg"
-        alt="Portrait of Ziyao Zheng"
-      >
-    </div>
-      
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -362,6 +440,7 @@
       <section id="about" aria-labelledby="about-title">
         <h2 id="about-title">About</h2>
 
+        <!-- Replace this paragraph with your biography. -->
         <div class="bio">
         <p>Hello!</p>
         <p>I’m an undergraduate in the Arts Management Specialist Program at UTSC. I'm working across arts and cultural management, public engagement, cultural strategy and art practices, where my interests lie in.</p>
