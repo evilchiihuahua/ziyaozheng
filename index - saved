@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Ziyao Zheng (Claire): Arts Management, University of Toronto Scarborough.">
+
+  <title>Ziyao Zheng · Claire</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+<style>
+  :root {
+    color-scheme: light;
+
+    --background: #f7f2e8;
+    --surface: #fbf8f2;
+    --text: #1f2a22;
+    --muted: #5e6a61;
+    --accent: #9e3d45;
+    --accent-soft: #8da37b;
+    --rule: #d8d2c4;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: 90px;
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Inter", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-wrap: break-word;
+  }
+
+  .container {
+    width: min(920px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--text);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    padding: 8px 12px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    transform: translateY(-150%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  header {
+    padding-top: 48px;
+    padding-bottom: 8px;
+    border-top: 5px solid var(--accent-soft);
+  }
+
+  h1, h2, h3 {
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  h1 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .alias {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 1.15rem;
+  }
+
+  .introduction {
+    margin: 22px 0 14px;
+    font-size: 1.1rem;
+    max-width: 680px;
+  }
+
+  .profile-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 14px;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .profile-links a,
+  nav a {
+    display: inline-block;
+    padding-block: 8px;
+  }
+
+  .separator {
+    color: var(--muted);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-top: 28px;
+    padding: 14px 0 18px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  main {
+    padding-bottom: 28px;
+  }
+
+  section {
+    padding-block: 42px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    margin: 0 0 22px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  h3 {
+    margin: 0 0 4px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0 0 16px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .bio {
+    max-width: 720px;
+  }
+
+  .lighter {
+    color: var(--muted);
+  }
+
+  .entry + .entry {
+    margin-top: 34px;
+  }
+
+  .organization {
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+
+  .metadata {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .description {
+    max-width: 700px;
+  }
+
+  .work-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+  }
+
+  .work-links a {
+    padding-block: 6px;
+    font-weight: 500;
+  }
+
+  .contact-list {
+    margin: 0;
+  }
+
+  .contact-list div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding-block: 8px;
+  }
+
+  .contact-list dt {
+    min-width: 90px;
+    font-weight: 600;
+  }
+
+  .contact-list dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    min-width: 0;
+    flex: 1 1 180px;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px 24px;
+    padding: 22px 0 36px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  footer a {
+    padding-block: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      width: calc(100% - 32px);
+    }
+
+    header {
+      padding-top: 32px;
+    }
+
+    section {
+      padding-block: 32px;
+    }
+
+    body {
+      font-size: 17px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    nav {
+      gap: 4px 18px;
+    }
+  }
+
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .skip-link,
+    nav,
+    footer {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="container">
+    <header>
+      <h1><a href="index.html">Ziyao Zheng</a></h1>
+      <p class="alias">Claire</p>
+
+      <p class="introduction">
+        Arts Management, University of Toronto Scarborough.
+      </p>
+
+
+      <div class="profile-links" aria-label="Profile links">
+        <a href="CV - 20261005.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <span class="separator" aria-hidden="true">|</span>
+        <a href="mailto:ziyao.zheng@mail.utoronto.ca">Email</a>
+        <span class="separator" aria-hidden="true">|</span>
+        <a href="https://github.com/ziyao-zheng" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="separator" aria-hidden="true">|</span>
+        <a href="https://www.linkedin.com/in/ziyao-zheng-0524a8291/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="writing.html">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+
+        <div class="bio">
+        <p>Hello!</p>
+        <p>I’m an undergraduate in the Arts Management Specialist Program at UTSC. I'm working across arts and cultural management, public engagement, cultural strategy and art practices, where my interests lie in.</p>
+        <p>I'm a dog person <span class="lighter">(with a soft spot for cats and rats too).</span></p>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">Experience</h2>
+
+       <article class="entry">
+          <h3>Arts Management Intern</h3>
+          <p class="organization">Toronto Outdoor Art Fair</p>
+          <p class="metadata">Toronto, ON | Apr–Jul 2026</p>
+          <p class="description">
+            Supported the 65th edition of Canada’s longest-running outdoor art fair,
+            working across artist coordination, community outreach, event operations,
+            digital content, and organizational research.
+          </p>
+        </article>
+
+        <article class="entry">
+          <h3>Event Support</h3>
+          <p class="organization">Work In Culture × UTSC Industry Event</p>
+          <p class="metadata">Toronto, ON | Jan 2026</p>
+          <p class="description">
+            Supported an arts and culture industry networking event for students,
+            professionals, and sector partners, assisting with participant flow,
+            session transitions, and on-site communication.
+          </p>
+        </article>
+
+        <article class="entry">
+          <h3>Marketing Intern</h3>
+          <p class="organization">Guangzhou Nanling Automobile Co. Ltd.</p>
+          <p class="metadata">Guangdong, China | May–Jul 2023</p>
+          <p class="description">
+            Developed short videos and visual content for social media marketing,
+            adapting creative materials to support audience engagement and digital
+            communication. Supported daily livestream operations and analyzed engagement
+            data.
+          </p>
+        </article>
+      </section>
+
+      <section id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+
+        <article class="entry">
+          <h3>University of Toronto Scarborough</h3>
+          <p class="organization">
+            Honours Bachelor of Arts · Specialist in Arts Management
+            <span class="lighter">(Field Placement Stream)</span>
+          </p>
+          <p class="metadata">Toronto, ON | Expected Apr 2027</p>
+
+          <p class="description">
+            Coursework across arts management, cultural organizations, audience
+            development, equity and inclusion, marketing, project management,
+            and financial management in the arts.
+          </p>
+        </article>
+      </section>
+
+      <section aria-labelledby="work-title">
+        <h2 id="work-title">Selected work</h2>
+
+        <div class="work-links">
+          <a href="artwork.html">Artwork </a>
+          <a href="writing.html">Writing </a>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+
+        <dl class="contact-list">
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:ziyao.zheng@mail.utoronto.ca">ziyao.zheng@mail.utoronto.ca</a></dd>
+            <dd><a href="mailto:claire4047688@gmail.com">claire4047688@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href="+1 647-404-7688/">+1 647-404-7688 </a></dd>
+          </div>
+
+
+      </section>
+    </main>
+
+    <footer>
+      <span>© Ziyao Zheng · Claire</span>
+      <a href="#main">Back to top ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
