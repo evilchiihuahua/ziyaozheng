@@ -271,7 +271,7 @@
       font-size: 13px;
     }
 
-    /* Move navigation above the text on medium screens. */
+
     @media (max-width: 950px) {
       .layout {
         grid-template-columns: 230px minmax(0, 1fr);
@@ -294,7 +294,7 @@
       }
     }
 
-    /* Stack profile and content on mobile. */
+
     @media (max-width: 680px) {
       .layout {
         width: calc(100% - 36px);
@@ -349,40 +349,67 @@
       }
     }
 
-    /* Strawberry Matcha typography */
-  body {
+
+    body {
     font-family: "DM Sans", Arial, sans-serif;
-  }
+    }
 
-  h1, h2, h3 {
-    font-family: "Lora", Georgia, serif;
-    font-weight: 500;
-  }
+    h1, h2, h3 {
+      font-family: "Lora", Georgia, serif;
+      font-weight: 500;
+    }
 
-  h1 {
-    letter-spacing: -0.025em;
-  }
+    h1 {
+      letter-spacing: -0.025em;
+    }
   
-  h2, h3 {
-    letter-spacing: -0.015em;
+    h2, h3 {
+      letter-spacing: -0.015em;
+    }
+
+    .alias {
+      font-family: "Lora", Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .profile-label {
+      font-family: "DM Sans", Arial, sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: 0.09em;
+    }
+
+    .side-nav,
+    .profile-links {
+      font-weight: 500;
+    }
+
+      .artwork-entry {
+    margin-bottom: 52px;
   }
 
-  .alias {
-    font-family: "Lora", Georgia, serif;
-    font-style: italic;
-    font-weight: 500;
+  .artwork-entry + .artwork-entry {
+    padding-top: 42px;
+    border-top: 1px solid var(--rule);
   }
 
-  .profile-label {
-    font-family: "DM Sans", Arial, sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    letter-spacing: 0.09em;
+  .video-embed {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+    background: #000;
   }
 
-  .side-nav,
-  .profile-links {
-    font-weight: 500;
+  .video-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .artwork-entry h3 {
+    margin-top: 0;
   }
   </style>
 </head>
@@ -400,7 +427,7 @@
           Portrait<br>to be added
         </div>
 
-        <!-- Upload your photo as images/portrait.jpg. -->
+
         <img
           id="portrait"
           src="profile%20photo.jpg"
@@ -583,17 +610,57 @@
           </article>
         </section>
 
-        <section
-          class="page"
-          id="artwork"
-          tabindex="-1"
-          aria-labelledby="artwork-title"
-        >
-          <h2 id="artwork-title">Artwork</h2>
-          <p class="coming-soon">
-            Selected artwork will be added here soon.
-          </p>
-        </section>
+    <section
+      class="page"
+      id="artwork"
+      tabindex="-1"
+      aria-labelledby="artwork-title"
+    >
+      <h2 id="artwork-title">Artwork</h2>
+
+      <article class="artwork-entry">
+        <div class="video-embed">
+        <iframe
+          src="https://player.vimeo.com/video/1239139271"
+          title="Paradise City by Ziyao Zheng"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3>Paradise City</h3>
+      <p class="metadata">
+        2026 · Verbal Performance Art
+      </p>
+
+      <p>
+        FADO Performance Art Award 2026.
+      </p>
+    </article>
+
+
+    <article class="artwork-entry">
+      <div class="video-embed">
+        <iframe
+          src="https://player.vimeo.com/video/1239287063"
+          title="Untitled Practice by Ziyao Zheng"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3>Untitled Practice</h3>
+
+      <p class="metadata">
+        2026 · Verbal Performance Art
+      </p>
+
+      <p>
+        Practice work for verbal performance art.
+        CARFAC Award 2026.
+      </p>
+    </article>
+    </section>
 
         <section
           class="page"
