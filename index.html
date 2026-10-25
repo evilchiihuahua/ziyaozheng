@@ -24,18 +24,26 @@
       --rule: #d8d2c4;
     }
 
+    html {
+      scrollbar-gutter: stable;
+      overflow-y: scroll;
+    }
+    
     * {
       box-sizing: border-box;
     }
 
-    body {
+     body {
       margin: 0;
       background: var(--background);
       color: var(--text);
-      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      font-size: 17px;
+
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 18px;
       line-height: 1.75;
+    
       overflow-wrap: anywhere;
+    }
     }
 
     a {
@@ -95,19 +103,35 @@
 
     h1 {
       margin: 0;
-      font-size: 30px;
-      font-weight: 500;
-      line-height: 1.2;
+
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+
+      color: var(--text);
     }
 
     h1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1 a:hover {
       color: var(--text);
       text-decoration: none;
     }
 
     .alias {
-      margin: 5px 0 22px;
-      color: var(--muted);
+      margin: 7px 0 24px;
+
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+
+      color: var(--accent);
+      letter-spacing: 0.02em;
     }
 
     .portrait {
@@ -198,17 +222,25 @@
     }
 
     h2 {
-      margin: 0 0 24px;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 1.3;
+      margin: 0 0 26px;
+
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.2;
+
+      color: var(--text);
     }
 
     h3 {
       margin: 0 0 5px;
-      font-size: 21px;
-      font-weight: 500;
-      line-height: 1.4;
+
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.35;
+
+      color: var(--text);
     }
 
     p {
