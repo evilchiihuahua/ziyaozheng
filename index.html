@@ -71,7 +71,7 @@
       transform: translateY(0);
     }
 
-    /* Profile on the left; content on the right. */
+
     .layout {
       width: min(1080px, calc(100% - 64px));
       margin: 48px auto 0;
@@ -176,7 +176,7 @@
       padding-block: 10px;
     }
 
-    /* Navigation sits beside the content on wider screens. */
+
     .content-layout {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 112px;
@@ -411,6 +411,46 @@
   .artwork-entry h3 {
     margin-top: 0;
   }
+
+  .artwork-collection {
+    margin-top: 52px;
+    padding-top: 42px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .collection-intro {
+    max-width: 700px;
+    margin-bottom: 30px;
+  }
+
+  .artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 22px;
+  }
+
+  .artwork-grid figure {
+    margin: 0;
+  }
+
+  .artwork-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .artwork-grid figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  @media (max-width: 680px) {
+    .artwork-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+    
   </style>
 </head>
 
@@ -681,6 +721,62 @@
       A short animation made in 2026.
     </p>
   </article>
+
+<section class="artwork-collection">
+  <div class="collection-intro">
+    <h3>Digital Illustrations 2025-2026</h3>
+
+    <p class="metadata">
+      Digital Illustration · Tam Lin
+    </p>
+
+    <p>
+      A collection of digital drawings developed from a Dungeons & Dragons campaign,
+      explore visual storytelling. The name of the Satyr is Tam Lin.
+    </p>
+  </div>
+
+  <div class="artwork-grid">
+    <figure>
+      <img
+        src="out_out_brief_candle.jpg"
+        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
+      >
+      <figcaption>
+        Drawing 01
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="had_i_known_but_yesterday_what_i_know_today.jpg"
+        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
+      >
+      <figcaption>
+        Drawing 02
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="tam_lin.jpg"
+        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
+      >
+      <figcaption>
+        Drawing 03
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="before_the_curtain_fall.jpg"
+        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
+      >
+      <figcaption>
+        Drawing 04
+      </figcaption>
+    </figure>
+  </div>
       
     </section>
 
