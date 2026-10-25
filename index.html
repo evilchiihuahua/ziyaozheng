@@ -5,55 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
         content="Ziyao Zheng (Claire): Arts Management, University of Toronto Scarborough.">
+  <meta name="theme-color" content="#f2e8cf">
 
   <title>Ziyao Zheng · Claire</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Lora:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:wght@600;700&amp;display=swap"
+        rel="stylesheet">
 
   <style>
     :root {
       color-scheme: light;
-      --background: #f7f2e8;
-      --surface: #fbf8f2;
-      --text: #1f2a22;
-      --muted: #5e6a61;
-      --accent: #9e3d45;
-      --sage: #8da37b;
-      --rule: #d8d2c4;
+      --background: #f2e8cf;
+      --surface: #faf5e9;
+      --text: #243d2b;
+      --heading: #30583a;
+      --muted: #4c5d45;
+      --accent: #9e343e;
+      --mint: #6a994e;
+      --pistachio: #a7c957;
+      --rule: #bac49e;
     }
 
-    html {
-      scrollbar-gutter: stable;
-      overflow-y: scroll;
-    }
-    
     * {
       box-sizing: border-box;
     }
 
-     body {
+    html {
+      scrollbar-gutter: stable;
+      scroll-padding-top: 24px;
+    }
+
+    body {
       margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
       background: var(--background);
       color: var(--text);
-
-      font-family: "Inter", Arial, sans-serif;
-      font-size: 18px;
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 400;
       line-height: 1.75;
-    
-      overflow-wrap: anywhere;
-    }
+      overflow-wrap: break-word;
     }
 
     a {
       color: var(--accent);
-      text-underline-offset: 4px;
       text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
     }
 
     a:hover {
-      color: var(--text);
+      color: var(--heading);
+      text-decoration-thickness: 2px;
     }
 
     a:focus-visible {
@@ -69,48 +76,59 @@
       position: absolute;
       top: 8px;
       left: 12px;
+      z-index: 5;
       padding: 8px 12px;
       background: var(--surface);
       transform: translateY(-160%);
-      z-index: 2;
     }
 
     .skip-link:focus {
       transform: translateY(0);
     }
 
-
+    /* Overall layout */
     .layout {
-      width: min(1080px, calc(100% - 64px));
-      margin: 48px auto 0;
+      position: relative;
+      width: min(1160px, calc(100% - 64px));
+      margin: 40px auto 0;
+      padding-top: 32px;
       display: grid;
       grid-template-columns: 260px minmax(0, 1fr);
-      gap: 44px;
-      border-top: 4px solid var(--sage);
-      padding-top: 32px;
+      gap: 42px;
+      flex: 1 0 auto;
+      align-content: start;
+      border-top: 4px solid var(--mint);
     }
 
+    .layout::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 64px;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    /* Profile */
     .profile {
-      align-self: start;
       min-width: 0;
+      align-self: start;
       padding-right: 28px;
       border-right: 1px solid var(--rule);
     }
 
     h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Fraunces", Georgia, serif;
+      color: var(--heading);
     }
 
     h1 {
       margin: 0;
-
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 38px;
+      font-size: 32px;
       font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-
-      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
     }
 
     h1 a {
@@ -118,19 +136,11 @@
       text-decoration: none;
     }
 
-    h1 a:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
     .alias {
       margin: 7px 0 24px;
-
-      font-family: "Inter", Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-
       color: var(--accent);
+      font-size: 17px;
+      font-weight: 600;
       letter-spacing: 0.02em;
     }
 
@@ -138,13 +148,11 @@
       position: relative;
       width: 100%;
       aspect-ratio: 1;
-      margin: 0 0 22px;
+      margin-bottom: 22px;
       background: var(--surface);
     }
 
     .portrait img {
-      position: absolute;
-      inset: 0;
       display: block;
       width: 100%;
       height: 100%;
@@ -156,23 +164,23 @@
       inset: 0;
       display: grid;
       place-content: center;
-      padding: 16px;
       border: 1px solid var(--rule);
       color: var(--muted);
-      font-size: 14px;
       text-align: center;
+      font-size: 14px;
     }
 
     .program {
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       font-size: 15px;
+      font-weight: 500;
       line-height: 1.65;
     }
 
     .profile-label {
       margin: 0 0 8px;
-      font: 600 12px/1.5 Arial, sans-serif;
-      letter-spacing: 0.09em;
+      font: 700 12px/1.5 "DM Sans", Arial, sans-serif;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
@@ -180,12 +188,13 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .contact a {
       max-width: 100%;
       padding-block: 7px;
+      overflow-wrap: anywhere;
     }
 
     .profile-links {
@@ -194,57 +203,62 @@
       gap: 0 16px;
       margin-top: 12px;
       font-size: 14px;
+      font-weight: 600;
     }
 
     .profile-links a {
       padding-block: 10px;
     }
 
-
+    /* Content and side navigation */
     .content-layout {
+      min-width: 0;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 112px;
+      grid-template-columns: minmax(0, 1fr) 110px;
       gap: 30px;
       align-items: start;
-      min-width: 0;
     }
 
     main {
       min-width: 0;
     }
 
-    .page {
-      padding: 0 0 32px;
-    }
-
+    main:focus,
     .page:focus {
       outline: none;
     }
 
+    .page {
+      padding-bottom: 24px;
+    }
+
     h2 {
       margin: 0 0 26px;
-
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 27px;
-      font-weight: 600;
-      line-height: 1.2;
-
-      color: var(--text);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
     }
 
     h3 {
-      margin: 0 0 5px;
-
-      font-family: "Fraunces", Georgia, serif;
+      margin: 0 0 7px;
       font-size: 22px;
       font-weight: 600;
       line-height: 1.35;
-
-      color: var(--text);
+      letter-spacing: -0.015em;
     }
 
     p {
       margin: 0 0 18px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bio > p:first-child {
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .lighter,
@@ -253,33 +267,38 @@
     }
 
     .organization {
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       font-size: 16px;
+      font-weight: 600;
     }
 
     .metadata {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       font-size: 14px;
+      font-weight: 500;
     }
 
     .entry + .entry {
-      margin-top: 28px;
-      padding-top: 28px;
+      margin-top: 30px;
+      padding-top: 30px;
       border-top: 1px solid var(--rule);
     }
 
     .side-nav {
+      position: sticky;
+      top: 24px;
       display: flex;
       flex-direction: column;
       padding-left: 16px;
-      border-left: 1px solid var(--rule);
+      border-left: 2px solid var(--pistachio);
       font-size: 14px;
+      font-weight: 600;
     }
 
     .side-nav a {
       display: block;
       padding-block: 10px;
-      color: var(--muted);
+      color: var(--heading);
       text-decoration: none;
     }
 
@@ -287,24 +306,83 @@
     .side-nav a[aria-current="page"] {
       color: var(--accent);
       text-decoration: underline;
+      text-decoration-thickness: 2px;
     }
 
     .coming-soon {
       color: var(--muted);
-      font-size: 15px;
     }
 
-    footer {
-      width: min(1080px, calc(100% - 64px));
-      margin: 32px auto 0;
-      padding: 20px 0 32px;
+    /* Artwork */
+    .artwork-entry + .artwork-entry,
+    .artwork-collection {
+      margin-top: 36px;
+      padding-top: 32px;
       border-top: 1px solid var(--rule);
+    }
+
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 20px;
+      background: #243d2b;
+    }
+
+    .video-embed iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .collection-intro {
+      margin-bottom: 26px;
+    }
+
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 22px;
+    }
+
+    figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .artwork-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Shared footer stays outside every page view */
+    .site-footer {
+      width: min(1160px, calc(100% - 64px));
+      margin: 36px auto 0;
+      padding: 20px 0 28px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 20px;
       color: var(--muted);
       font-size: 13px;
     }
 
+    .site-footer a {
+      padding-block: 4px;
+    }
 
-    @media (max-width: 950px) {
+    /* Tablet */
+    @media (max-width: 1000px) {
       .layout {
         grid-template-columns: 230px minmax(0, 1fr);
         gap: 28px;
@@ -312,28 +390,29 @@
 
       .content-layout {
         grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
+        gap: 26px;
       }
 
       .side-nav {
+        position: static;
         grid-row: 1;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 0 20px;
+        gap: 0 22px;
         padding: 0 0 12px;
         border-left: 0;
-        border-bottom: 1px solid var(--rule);
+        border-bottom: 2px solid var(--pistachio);
       }
     }
 
-
+    /* Mobile */
     @media (max-width: 680px) {
       .layout {
         width: calc(100% - 36px);
         margin-top: 24px;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 28px;
         padding-top: 24px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
       }
 
       .profile {
@@ -350,26 +429,56 @@
         max-width: 320px;
       }
 
-      footer {
+      .side-nav {
+        column-gap: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .artwork-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .site-footer {
         width: calc(100% - 36px);
-        margin-top: 0;
+        margin-top: 24px;
       }
     }
 
     @media print {
       body {
+        display: block;
         background: white;
+        color: black;
       }
 
       .layout {
         width: 100%;
         margin: 0;
+        display: block;
+        border: 0;
       }
 
+      .layout::before,
       .side-nav,
       .skip-link,
-      footer {
+      .site-footer a {
         display: none;
+      }
+
+      .profile {
+        border: 0;
+        margin-bottom: 24px;
+      }
+
+      .portrait {
+        max-width: 140px;
       }
 
       .content-layout {
@@ -379,110 +488,11 @@
       .page[hidden] {
         display: block !important;
       }
+
+      .site-footer {
+        width: 100%;
+      }
     }
-
-
-    body {
-    font-family: "DM Sans", Arial, sans-serif;
-    }
-
-    h1, h2, h3 {
-      font-family: "Lora", Georgia, serif;
-      font-weight: 500;
-    }
-
-    h1 {
-      letter-spacing: -0.025em;
-    }
-  
-    h2, h3 {
-      letter-spacing: -0.015em;
-    }
-
-    .alias {
-      font-family: "Lora", Georgia, serif;
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .profile-label {
-      font-family: "DM Sans", Arial, sans-serif;
-      font-weight: 600;
-      font-style: normal;
-      letter-spacing: 0.09em;
-    }
-
-    .side-nav,
-    .profile-links {
-      font-weight: 500;
-    }
-
-      .artwork-entry {
-    margin-bottom: 52px;
-  }
-
-  .artwork-entry + .artwork-entry {
-    padding-top: 42px;
-    border-top: 1px solid var(--rule);
-  }
-
-  .video-embed {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 20px;
-    background: #000;
-  }
-
-  .video-embed iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
-  .artwork-entry h3 {
-    margin-top: 0;
-  }
-
-  .artwork-collection {
-    margin-top: 52px;
-    padding-top: 42px;
-    border-top: 1px solid var(--rule);
-  }
-
-  .collection-intro {
-    max-width: 700px;
-    margin-bottom: 30px;
-  }
-
-  .artwork-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 22px;
-  }
-
-  .artwork-grid figure {
-    margin: 0;
-  }
-
-  .artwork-grid img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .artwork-grid figcaption {
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  @media (max-width: 680px) {
-    .artwork-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-    
   </style>
 </head>
 
@@ -491,14 +501,13 @@
 
   <div class="layout">
     <aside class="profile" aria-label="Profile and contact">
-      <h1><a href="index.html">Ziyao Zheng</a></h1>
+      <h1><a href="#about">Ziyao Zheng</a></h1>
       <p class="alias">Claire</p>
 
       <div class="portrait">
         <div class="portrait-placeholder" id="portrait-placeholder">
           Portrait<br>to be added
         </div>
-
 
         <img
           id="portrait"
@@ -553,7 +562,9 @@
     </aside>
 
     <div class="content-layout">
-      <main id="main">
+      <main id="main" tabindex="-1">
+
+        <!-- ABOUT -->
         <section
           class="page"
           id="about"
@@ -581,6 +592,7 @@
           </div>
         </section>
 
+        <!-- EXPERIENCE -->
         <section
           class="page"
           id="experience"
@@ -635,17 +647,20 @@
           <article class="entry">
             <h3>Dog Daycare Attendant</h3>
             <p class="organization">Doggy House</p>
-            <p class="metadata">Part-time · Markham, ON | Sep 2021–Aug 2022</p>
+            <p class="metadata">
+              Part-time · Markham, ON | Sep 2021–Aug 2022
+            </p>
 
             <p>
-              Maintained a clean, safe, and comfortable environment for dogs in daily care.
-              Managed the daycare’s Instagram account by photographing dogs and publishing
-              daily social media updates for clients and followers.
+              Maintained a clean, safe, and comfortable environment
+              for dogs in daily care. Managed the daycare’s Instagram
+              account by photographing dogs and publishing daily social
+              media updates for clients and followers.
             </p>
           </article>
-          
         </section>
 
+        <!-- EDUCATION -->
         <section
           class="page"
           id="education"
@@ -672,160 +687,142 @@
               project management, and financial management in the arts.
             </p>
           </article>
-        </section>
-
-        <section
-          class="page"
-          id="education"
-          tabindex="-1"
-          aria-labelledby="education-title"
-        >
 
           <article class="entry">
             <h3>Thornlea Secondary School</h3>
-
-            <p class="organization">
-              High School Diploma
-            </p>
-
-            <p class="metadata">
-              Markham, ON | 2019–2023
-            </p>
-        
+            <p class="organization">High School Diploma</p>
+            <p class="metadata">Markham, ON | 2019–2023</p>
           </article>
         </section>
 
-    <section
-      class="page"
-      id="artwork"
-      tabindex="-1"
-      aria-labelledby="artwork-title"
-    >
-      <h2 id="artwork-title">Artwork</h2>
+        <!-- ARTWORK -->
+        <section
+          class="page"
+          id="artwork"
+          tabindex="-1"
+          aria-labelledby="artwork-title"
+        >
+          <h2 id="artwork-title">Artwork</h2>
 
-      <article class="artwork-entry">
-        <div class="video-embed">
-        <iframe
-          src="https://player.vimeo.com/video/1239139271"
-          title="Paradise City by Ziyao Zheng"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
+          <article class="artwork-entry">
+            <div class="video-embed">
+              <iframe
+                src="https://player.vimeo.com/video/1239139271"
+                title="Paradise City by Ziyao Zheng"
+                allow="autoplay; fullscreen; picture-in-picture"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
 
-      <h3>Paradise City</h3>
-      <p class="metadata">
-        2026 · Verbal Performance Art
-      </p>
+            <h3>Paradise City</h3>
+            <p class="metadata">2026 · Verbal Performance Art</p>
+            <p>FADO Performance Art Award 2026.</p>
+          </article>
 
-      <p>
-        FADO Performance Art Award 2026.
-      </p>
-    </article>
+          <article class="artwork-entry">
+            <div class="video-embed">
+              <iframe
+                src="https://player.vimeo.com/video/1239287063"
+                title="Untitled Practice by Ziyao Zheng"
+                allow="autoplay; fullscreen; picture-in-picture"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
 
+            <h3>Untitled Practice</h3>
+            <p class="metadata">2026 · Verbal Performance Art</p>
 
-    <article class="artwork-entry">
-      <div class="video-embed">
-        <iframe
-          src="https://player.vimeo.com/video/1239287063"
-          title="Untitled Practice by Ziyao Zheng"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
+            <p>
+              Practice work for verbal performance art.
+              CARFAC Award 2026.
+            </p>
+          </article>
 
-      <h3>Untitled Practice</h3>
+          <article class="artwork-entry">
+            <div class="video-embed">
+              <iframe
+                src="https://player.vimeo.com/video/1239290393"
+                title="Clock Out by Ziyao Zheng"
+                allow="autoplay; fullscreen; picture-in-picture"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
 
-      <p class="metadata">
-        2026 · Verbal Performance Art
-      </p>
+            <h3>Clock Out</h3>
+            <p class="metadata">Short Animation</p>
+            <p>A short animation made in 2026.</p>
+          </article>
 
-      <p>
-        Practice work for verbal performance art.
-        CARFAC Award 2026.
-      </p>
-    </article>
+          <section
+            class="artwork-collection"
+            aria-labelledby="illustrations-title"
+          >
+            <div class="collection-intro">
+              <h3 id="illustrations-title">Digital Illustrations</h3>
 
-  <article class="artwork-entry">
-    <div class="video-embed">
-      <iframe
-        src="https://player.vimeo.com/video/1239290393"
-        title="Clock Out by Ziyao Zheng"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
+              <p class="metadata">
+                Digital Illustration · Tam Lin
+              </p>
 
-    <h3>Clock Out</h3>
+              <p>
+                A collection of digital drawings developed from a
+                Dungeons &amp; Dragons campaign, exploring visual
+                storytelling. The name of the Satyr
+                <span class="lighter">(my player character)</span>
+                is Tam Lin.
+              </p>
+            </div>
 
-    <p class="metadata">
-      Short Animation
-    </p>
+            <div class="artwork-grid">
+              <figure>
+                <img
+                  src="out_out_brief_candle.png"
+                  alt="Digital illustration from Ziyao Zheng's Dungeons &amp; Dragons campaign"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>Out, out, brief candle!</figcaption>
+              </figure>
 
-    <p>
-      A short animation made in 2026.
-    </p>
-  </article>
+              <figure>
+                <img
+                  src="had_i_known_but_yesterday_what_i_know_today.png"
+                  alt="Digital illustration from Ziyao Zheng's Dungeons &amp; Dragons campaign"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>
+                  Had I known but yesterday what I know today
+                </figcaption>
+              </figure>
 
-<section class="artwork-collection">
-  <div class="collection-intro">
-    <h3>Digital Illustrations</h3>
+              <figure>
+                <img
+                  src="tam_lin.png"
+                  alt="Digital illustration from Ziyao Zheng's Dungeons &amp; Dragons campaign"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>Tam Lin</figcaption>
+              </figure>
 
-    <p class="metadata">
-      Digital Illustration · Tam Lin
-    </p>
+              <figure>
+                <img
+                  src="before_the_curtain_fall.png"
+                  alt="Digital illustration from Ziyao Zheng's Dungeons &amp; Dragons campaign"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>Before the Curtain Fall</figcaption>
+              </figure>
+            </div>
+          </section>
+        </section>
 
-    <p>
-      A collection of digital drawings developed from a Dungeons & Dragons campaign,
-      exploring visual storytelling. The name of the Satyr <span class="lighter">
-     (my player character) </span>  is Tam Lin.
-    </p>
-  </div>
-
-  <div class="artwork-grid">
-    <figure>
-      <img
-        src="out_out_brief_candle.png"
-        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
-      >
-      <figcaption>
-        Out, out, brief candle!
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img
-        src="had_i_known_but_yesterday_what_i_know_today.png"
-        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
-      >
-      <figcaption>
-        Had I known but yesterday what I know today
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img
-        src="tam_lin.png"
-        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
-      >
-      <figcaption>
-        Tam Lin
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img
-        src="before_the_curtain_fall.png"
-        alt="Digital illustration from Ziyao Zheng's Dungeons & Dragons campaign"
-      >
-      <figcaption>
-        Before the Curtain Fall
-      </figcaption>
-    </figure>
-  </div>
-      
-    </section>
-
+        <!-- WRITING -->
         <section
           class="page"
           id="writing"
@@ -833,6 +830,7 @@
           aria-labelledby="writing-title"
         >
           <h2 id="writing-title">Writing</h2>
+
           <p class="coming-soon">
             Essays, research, and reflections will be added here soon.
           </p>
@@ -849,35 +847,58 @@
     </div>
   </div>
 
-  <footer>© Ziyao Zheng · Claire</footer>
+  <!-- One shared footer, outside all switchable sections. -->
+  <footer class="site-footer">
+    <span>&copy; Ziyao Zheng · Claire</span>
+    <a href="#about">Back to About ↑</a>
+  </footer>
 
   <script>
+    const pages = [
+      ...document.querySelectorAll("main > .page")
+    ];
 
-    const pages = [...document.querySelectorAll(".page")];
     const navigation = [
       ...document.querySelectorAll(".side-nav a")
     ];
 
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    let activePage;
+    let transition;
+
     function showPage(moveFocus = false) {
+      // Allow the accessibility skip link to work normally.
+      if (location.hash === "#main") {
+        document.getElementById("main").focus();
+        return;
+      }
+
       const requested = location.hash.slice(1);
 
-      const id = pages.some(page => page.id === requested)
-        ? requested
-        : "about";
+      const current =
+        pages.find(page => page.id === requested) || pages[0];
+
+      const changed = activePage !== current;
+
+      // Cancel an unfinished animation during rapid navigation.
+      if (transition) {
+        transition.cancel();
+      }
 
       pages.forEach(page => {
-        page.hidden = page.id !== id;
+        page.hidden = page !== current;
       });
 
       navigation.forEach(link => {
-        if (link.hash === "#" + id) {
+        if (link.hash === "#" + current.id) {
           link.setAttribute("aria-current", "page");
         } else {
           link.removeAttribute("aria-current");
         }
       });
-
-      const current = document.getElementById(id);
 
       document.title =
         current.querySelector("h2").textContent +
@@ -885,8 +906,50 @@
 
       if (moveFocus) {
         current.focus({ preventScroll: true });
+
+        // Return to the content heading after leaving a long page.
+        if (current.getBoundingClientRect().top < 0) {
+          current.scrollIntoView({
+            block: "start",
+            behavior: "instant"
+          });
+        }
       }
+
+      // Small fade and 5px movement, only when changing views.
+      if (
+        activePage &&
+        changed &&
+        !reducedMotion.matches &&
+        current.animate
+      ) {
+        transition = current.animate(
+          [
+            {
+              opacity: 0,
+              transform: "translateY(5px)"
+            },
+            {
+              opacity: 1,
+              transform: "translateY(0)"
+            }
+          ],
+          {
+            duration: 180,
+            easing: "ease-out"
+          }
+        );
+      }
+
+      activePage = current;
     }
+
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches && transition) {
+        transition.cancel();
+      }
+    });
+
 
     window.addEventListener("hashchange", () => {
       showPage(true);
@@ -894,20 +957,24 @@
 
     showPage();
 
- 
-    const portrait = document.getElementById("portrait");
 
-    function showPortrait() {
-      if (portrait.naturalWidth > 0) {
-        portrait.hidden = false;
-        document.getElementById(
-          "portrait-placeholder"
-        ).hidden = true;
-      }
+    const portrait = document.getElementById("portrait");
+    const portraitPlaceholder = document.getElementById(
+      "portrait-placeholder"
+    );
+
+    function updatePortrait() {
+      const loaded =
+        portrait.complete && portrait.naturalWidth > 0;
+
+      portrait.hidden = !loaded;
+      portraitPlaceholder.hidden = loaded;
     }
 
-    portrait.addEventListener("load", showPortrait);
-    showPortrait();
+    portrait.addEventListener("load", updatePortrait);
+    portrait.addEventListener("error", updatePortrait);
+
+    updatePortrait();
   </script>
 </body>
 </html>
